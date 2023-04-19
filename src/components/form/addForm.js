@@ -1,40 +1,7 @@
 import GenericForm from ".";
+import {fields} from "../../data/taskFields";
 
 const AddForm = (props) => {
-
-  const fields = [
-    {
-      title: "Task Name",
-      name: "name",
-      type: "text",
-      placeholder: "Task#1"
-    },
-    {
-      title: "Task Description",
-      name:"description",
-      type:"text",
-      placeholder:"Description"
-    },
-    {
-      title: "Task Due Date",
-      name:"dueDate",
-      type:"date",
-      min: new Date().toISOString().split("T")[0]
-    },
-    {
-      title: "Task Status",
-      name:"status",
-      type:"radio", 
-      value:"Incomplete",
-      label:"Incomplete"
-    },
-    {
-      name:"status",
-      type:"radio",
-      value:"Completed",
-      label:"Completed"
-    }
-  ]
 
   const { task, setTask } = props;
 

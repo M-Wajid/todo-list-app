@@ -11,14 +11,17 @@ function App() {
   const [data, setData] = useState(tasks);
   const [task, setTask] = useState({});
 
-  const tableHeading = ["name", "description", "dueDate", "status"];
+  const tableHeading = ["name", "description", "dueDate", "status","complexity"];
 
   const addFunc = () => {
-    Object.keys(task).length === 4 && 
+    Object.keys(task).length === 5 && 
     <>
       {setData([
         ...data,
-        task
+        {
+          "id": crypto.randomUUID(),
+          ...task
+        }
       ])}
       {setTask({})}
     </>
@@ -26,11 +29,8 @@ function App() {
   }
 
   const editFunc = () => {
-    Object.keys(task).length === 4 && 
-    <>
-      {setData(data.map(item => item.name === task.name ? task : item))}
-      {setTask({})}
-    </> 
+    setData(data.map(item => item.id === task.id ? task : item))
+    setTask({})
   }
 
   const deleteFunc = () => {
