@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import GenericButton from '../button/genericButton';
 
 const GenericModal = (props) => {
-  const {name, mainForm, mainFunc} = props;
-  const [show, setShow] = useState(false);
+  const {show, setShow, name, mainForm, mainFunc} = props;
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const onClickHandler = () => {
     mainFunc();
@@ -16,7 +13,6 @@ const GenericModal = (props) => {
 
   return (
     <>
-      <GenericButton buttonName={name} buttonClass="buttonClass" clickFunc={handleShow}/>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{name}</Modal.Title>
